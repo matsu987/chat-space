@@ -4,7 +4,7 @@
 
 |Column|Type|Options|
 |------|----|-------|
-|name  |string|null: false|
+|name  |string|null: false, unique: true, add_index|
 
 # 以下はdeviseを使用
 
@@ -28,7 +28,7 @@
 
 |Column|Type|Options|
 |------|----|-------|
-|group_name|text|null: false|
+|name|text|null: false|
 
 ### Association
 - has_many :messages
@@ -42,6 +42,7 @@
 |text  |text|		|
 |image |string|		|
 |user  |refarence|foreign_key: true|
+|group |refarence|foreign_key: true|
 
 ### Association
 - belongs_to :user
