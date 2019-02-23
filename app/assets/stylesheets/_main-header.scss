@@ -1,0 +1,36 @@
+.main-chat{
+	box-sizing: border-box;
+	display: block;
+	height: 100vh;
+	width: calc(100vw - 300px);
+	.main-header{
+		display: flex;
+		height: 100px;
+		border: #eeeeee;
+		&__left-box{
+			height: 47px;
+			width: 300px;
+			margin: 35px 0px 40px 40px;
+			&__current-group{
+				font-size: 20px;
+				color: #333333;
+			}
+			&__member-list{
+				display: flex;
+				font-size: 12px;
+				color: black;
+			}
+		}
+		&__edit-btn{
+			float: right;
+			position: absolute;
+			right: 40px;
+			border: solid 1px;
+			line-height: 40px;
+			padding: 0px 20px;
+			margin: 28px 0px 0px 0px;
+			color: #03a9f4;
+		}
+	}
+}
+
