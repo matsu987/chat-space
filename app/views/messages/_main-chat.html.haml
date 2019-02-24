@@ -1,0 +1,23 @@
+.box
+  .main-chat
+    .main-header
+      .main-header__left-box
+        %h2.main-header__left-box__current-group
+          groupname
+        %ul.main-header__left-box__member-list
+          member:
+          %li.main-header__left-box__member-list__member
+            name
+      .main-header__edit-btn
+        Edit
+    .messages
+      .message
+        .message__upper-info
+          %p.message__upper-info__talker
+            name
+          %p.message__upper-info__date
+            2018/02/22/18:20
+        %p.message__text
+          こんにちは！
+    = render "form"
+
