@@ -1,8 +1,8 @@
 .form
-  %form#new-message.new-message{ enctype: 'multipart/form-data', action:'/', method: 'post'}
-    .input-box
-      %input.id.input-box__text{ placeholder: 'type a message', type: 'text', name: ''}
-      %label.input-box__image{ for: 'message_image'}
-        %i.fa.fa-image.image-btn
-        %input#message_image.input-box__image__file{ type: 'file', name: ''}
-      %input.submit-btn{ type: 'submit', name: 'comit', value: 'Send'}
+  = form_for [@group, @message] do |f|
+    = f.text_field :content, class: 'form__message', placeholder: 'type a message'
+    .form__mask
+      = f.label :image, class: 'form__mask__image' do
+        %i.fa.fa-image.icon{ style: '&#xf03e'}
+        = f.file_field :image, class: 'hidden'
+    = f.submit 'Send', class: 'form__submit'
