@@ -3,6 +3,7 @@
 	height: calc(100vh - 292px);
 	background-color: #fafafa;
 	padding: 46px 40px;
+	overflow: scroll;
 	.message{
 		height: 80px;
 		padding-bottom: 40px;
@@ -18,11 +19,13 @@
 			&__date{
 				font-size: 12px;
 				margin-left: 10px;
+				font-weight: normal;
 				color: black;
 			}
 		}
 		&__text{
 			font-size: 14px;
+			font-weight: normal;
 			color: gray;
 		}
 	}
