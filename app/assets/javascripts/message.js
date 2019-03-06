@@ -1,5 +1,8 @@
 $(function(){
 	function buildHTML(message){
+    var image = ""
+    console.log(message)
+    image = `<img class="lower-meesage__image" src="${message.image.url}">`
     var html = `<div class=message>
                   <div class=upper-message>
     			          <div class=upper-message__user-name>${message.user_name}</div>
@@ -7,6 +10,7 @@ $(function(){
     			        </div>
     			        <div class=lower-meesage>
     			          <p class=lower-message__content>${message.content}</p>
+                    ${image}
     			        </div>
                 </div>
                 `
@@ -29,7 +33,6 @@ $(function(){
     .done(function(data){
       var html = buildHTML(data);
       $('.messages').append(html)
-      //$('.form__message').val('')
       $("#new_message")[0].reset();
       $('.messages').animate({scrollTop: $('.messages')[0].scrollHeight}, 'fast');
     })
@@ -40,11 +43,4 @@ $(function(){
       $("#new_message_btn").prop('disabled', false);
     })
   })
-    // var speed = 400; // ミリ秒で記述
-    // var href= $(this).attr("action");
-    // var target = $(href == "#" || href == "" ? 'html' : href);
-    // var position = target.offset().top;
-    // $('message,html').animate({scrollTop: 2000}, speed, 'swing');
-    // return false;
-  //})
 })
