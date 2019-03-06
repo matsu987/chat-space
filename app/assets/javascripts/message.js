@@ -1,7 +1,6 @@
 $(function(){
 	function buildHTML(message){
     var image = ""
-    console.log(message)
     image = `<img class="lower-meesage__image" src="${message.image.url}">`
     var html = `<div class=message>
                   <div class=upper-message>
