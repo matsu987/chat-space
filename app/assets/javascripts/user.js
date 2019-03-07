@@ -34,17 +34,16 @@ $(function() {
     })
 
     .done(function(users) {
-	  $("#user-search-result").empty();
-       users.forEach(function(user){
-         appendSearchUserResult(user);
+	    $("#user-search-result").empty();
+        users.forEach(function(user){
+        appendSearchUserResult(user);
+      $(".chat-group-user").on("click",".chat-group-user__btn--add",function() {
+        appendAddChatMember(user);
+  		$("#user-search-result").empty();
 
-        $(".chat-group-user").on("click",".chat-group-user__btn--add",function() {
-          appendAddChatMember(user);
-  		  $("#user-search-result").empty();
-
-  		  $(".chat-group-user").on("click",".chat-group-user__btn--remove",function() {
-  		    $(".chat-group-user").empty();
-  		  });
+  		$(".chat-group-user").on("click",".chat-group-user__btn--remove",function() {
+  		  $(".chat-group-user").empty();
+  		});
     	});
       });
     })
