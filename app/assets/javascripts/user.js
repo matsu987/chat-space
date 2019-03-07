@@ -11,7 +11,7 @@ $(function() {
 	search_list.append(html);
   }
 
-  function appendAddChatMember(user){
+  function appendChatMember(user){
   var html_member =`<div class='chat-group-user clearfix js-chat-member' id='chat-group-user-id'>
   					  <input name='group[user_ids][]' type='hidden' value='${user.user_id}'>
   					  <p class='chat-group-user__name'>${user.user_name}</p>
@@ -38,7 +38,7 @@ $(function() {
         users.forEach(function(user){
         appendSearchUserResult(user);
       $(".chat-group-user").on("click",".chat-group-user__btn--add",function() {
-        appendAddChatMember(user);
+        appendChatMember(user);
   		$("#user-search-result").empty();
 
   		$(".chat-group-user").on("click",".chat-group-user__btn--remove",function() {
