@@ -15,8 +15,8 @@ $(function() {
     return html;
   }
 
-  function update() {
-    var messageId = $('.message:last-of-type').data('id');
+  function update_message() {
+    var messageId = $('.message:last').data('id');
     $.ajax({
       url: `/groups/${groupId}/messages`,
       dataType: 'json',
@@ -40,6 +40,6 @@ $(function() {
   var path = location.pathname ;
   var groupId = $('.main-header__left-box__current-group:last').data('id');
   if (path == `/groups/${groupId}/messages`) {
-    setInterval(update, 5000);
+    setInterval(update_message, 5000);
   }
 });
