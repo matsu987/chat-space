@@ -1,5 +1,5 @@
 $(function() {
-  function buildHTML(message){
+  function buildSendMessageHTML(message){
     var image = message.image.url ? `<img class="lower-meesage__image" src="${message.image.url}">` : "" ;
     var html = `<div class=message data-id=${message.id}>
                   <div class=upper-message>
@@ -24,10 +24,11 @@ $(function() {
       data: {message_id: messageId }
     })
 
-    .done(function(data) {
-      if (data.length != null){
-        data.forEach(function(message) {
-          $('.messages').append(buildHTML(message));
+    .done(function(message) {
+      console.log(message);
+      if (message.length != null){
+        message.forEach(function(message) {
+          $('.messages').append(buildSendMessageHTML(message));
           $('.messages').animate({scrollTop: $('.messages')[0].scrollHeight}, 'fast');
         })
       }
