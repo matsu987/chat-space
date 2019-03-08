@@ -25,7 +25,6 @@ $(function() {
     })
 
     .done(function(message) {
-      console.log(message);
       if (message.length != null){
         message.forEach(function(message) {
           $('.messages').append(buildSendMessageHTML(message));
