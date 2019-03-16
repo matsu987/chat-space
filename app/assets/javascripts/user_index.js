@@ -27,6 +27,10 @@ $(function() {
       });
   }
 
+  $(".chat-group-user").on("click",".chat-group-user__btn--remove",function() {
+        $(".chat-group-user").empty();
+  });
+
   $("#user-search-field").on("keyup", function() {
     var input = $("#user-search-field").val();
       if (input == "") {
