@@ -290,7 +290,7 @@ Devise.setup do |config|
   # ActiveSupport.on_load(:devise_failure_app) do
   #   include Turbolinks::Controller
   # end
-  config.secret_key = ENV["DEVISE_SECRET_KEY"]
+  config.secret_key = '700357e694df323ec0de3d1c1f33b21acfeffe6aaabce8ebe92c7f3566b0c3f2441acbd35e4bc31422c250221d2dd2667e118e25966d08c60f521f606d84aeb5'
 
 
   # ==> Configuration for :registerable
