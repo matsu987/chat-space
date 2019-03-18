@@ -9,7 +9,8 @@ $(function() {
   			   </div>
   			   `
   	  search_list.append(html);
-      $(".chat-group-user").on("click",".chat-group-user__btn--add",function() {
+      $("#chat-group-user${user.user_id").on("click",".chat-group-user__btn--add",function() {
+    console.log("k")
         appendChatMember(user);
         $("#user-search-result").empty();
       });
