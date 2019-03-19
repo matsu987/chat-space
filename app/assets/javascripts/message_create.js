@@ -39,6 +39,11 @@ $(function(){
     })
     .always(function(){
       $("#new_message_btn").prop('disabled', false);
+
+      var input = $("#new_message_btn").prop('disabled')
+      if (input) {
+        alert('error');
+      }
     })
   })
 })
