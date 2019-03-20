@@ -48,9 +48,8 @@ $(function() {
     var element = $(".chat-group-user")
     var num = element.length
     for (var i=0; i<num; i++){
-    var memberId = $(".chat-group-user input").eq(i).val()
-     membersId.push(memberId)
-    console.log(membersId)
+      var memberId = $(".chat-group-user input").eq(i).val()
+      membersId.push(memberId)
     }
 
     $("#user-search-result").empty();
