@@ -5,7 +5,7 @@
       %ul
         - @group.errors.full_messages.each do |message|
           %li= message
-  .chat-group-form__field
+  .chat-group-form__field{"data-id": @group.id}
     .chat-group-form__field--left
       = f.label :name, class: 'chat-group-form__label'
     .chat-group-form__field--right
@@ -28,7 +28,7 @@
             %input{name: "group[user_ids][]", type: "hidden", value: "#{group_user.user_id}"}/
             %p.chat-group-user__name
               = group_user.user.name
-            %a{class: 'user-search-remove chat-group-user__btn chat-group-user__btn--remove js-remove-btn', 'data-user-id': group_user.user_id} 削除
+            %a{class: 'user-search-remove chat-group-user__btn chat-group-user__btn--remove js-remove-btn', id: "chat-member-#{group_user.user_id}", 'data-user-id': group_user.user_id, 'data-user-name': group_user.user.name} 削除
   .chat-group-form__field.clearfix
     .chat-group-form__field--left
     .chat-group-form__field--right

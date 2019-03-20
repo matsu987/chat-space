@@ -21,7 +21,7 @@ $(function() {
     var html_member =`<div class='chat-group-user clearfix js-chat-member' id='chat-group-user-${user.user_id}'>
     					  <input name='group[user_ids][]' type='hidden' value='${user.user_id}'>
     					  <p class='chat-group-user__name'>${user.user_name}</p>
-    					  <a class='user-search-remove chat-group-user__btn chat-group-user__btn--remove js-remove-btn' data-user-id="${user.user_id}">削除</a>
+    					  <a class='user-search-remove chat-group-user__btn chat-group-user__btn--remove js-remove-btn' id='chat-member-${user.user_id}'' data-user-id="${user.user_id}" data-user-name="${user.user_name}">削除</a>
   			   		</div>`
   	  member_list.append(html_member);
       $(document).ready(function() {
@@ -40,13 +40,22 @@ $(function() {
   $("#user-search-field").on("keyup", function() {
     var input = $("#user-search-field").val();
       if (input == "" ) {
-	    $("#user-search-result").empty();
+        $("#user-search-result").empty();
     	  return;
       }
+
+    var num = document.getElementById("chat-group-users").childElementCount;
+    var usersName = []
+      for (i=1; i<=num; i++){
+      var users = $(`#chat-member-${i}`).data('user-name');
+      usersName.push(users);
+      }
+    $("#user-search-result").empty();
+
     $.ajax({
       type: 'GET',
       url: '/users',
-      data: { keyword: input },
+      data: { keyword: input, users_name: usersName},
       dataType: 'json'
     })
 
