@@ -9,9 +9,11 @@ $(function() {
   			   </div>
   			   `
   	  search_list.append(html);
-      $(".chat-group-user").on("click",".chat-group-user__btn--add",function() {
-        appendChatMember(user);
-        $("#user-search-result").empty();
+      $(document).ready(function() {
+        $(`#chat-group-user-${user.user_id}`).on("click",".chat-group-user__btn--add", function() {
+          appendChatMember(user);
+          $("#user-search-result").empty();
+        });
       });
   }
 
@@ -22,14 +24,18 @@ $(function() {
     					  <a class='user-search-remove chat-group-user__btn chat-group-user__btn--remove js-remove-btn' data-user-id="${user.user_id}">削除</a>
   			   		</div>`
   	  member_list.append(html_member);
-      $(".chat-group-user").on("click",".chat-group-user__btn--remove",function() {
-        $(".chat-group-user").empty();
+      $(document).ready(function() {
+        $(`#chat-group-user-${user.user_id}`).on("click",".chat-group-user__btn--remove", function() {
+          $(`#chat-group-user-${user.user_id}`).remove();
+        });
       });
   }
 
-  $(".chat-group-user").on("click",".chat-group-user__btn--remove",function() {
-        $(".chat-group-user").remove();
+  $('.chat-group-user').on("click",".chat-group-user__btn--remove", function(){
+    var id =  $(this).data("user-id");
+    $(`#chat-group-user-${id}`).remove();
   });
+
 
   $("#user-search-field").on("keyup", function() {
     var input = $("#user-search-field").val();
