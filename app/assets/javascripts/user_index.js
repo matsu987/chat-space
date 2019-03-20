@@ -44,18 +44,21 @@ $(function() {
     	  return;
       }
 
-    var num = document.getElementById("chat-group-users").childElementCount;
-    var usersName = []
-      for (i=1; i<=num; i++){
-      var users = $(`#chat-member-${i}`).data('user-name');
-      usersName.push(users);
-      }
+    var membersId = []
+    var element = $(".chat-group-user")
+    var num = element.length
+    for (var i=0; i<num; i++){
+    var memberId = $(".chat-group-user input").eq(i).val()
+     membersId.push(memberId)
+    console.log(membersId)
+    }
+
     $("#user-search-result").empty();
 
     $.ajax({
       type: 'GET',
       url: '/users',
-      data: { keyword: input, users_name: usersName},
+      data: { keyword: input, users_id: membersId},
       dataType: 'json'
     })
 
