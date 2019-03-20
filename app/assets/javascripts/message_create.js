@@ -20,6 +20,7 @@ $(function(){
     var formData = new FormData(this);
     var url = $(this).attr('action');
 
+
     $.ajax({
       url: url,
       type: "POST",
@@ -29,21 +30,23 @@ $(function(){
       contentType: false
     })
     .done(function(message){
-      var html = buildSendMessageHTML(message);
-      $('.messages').append(html)
-      $("#new_message")[0].reset();
-      $('.messages').animate({scrollTop: $('.messages')[0].scrollHeight}, 'fast');
+      if (message.content == "" && message.image == "") {
+        alert('error');
+        $("#new_message_btn").prop('disabled', false);
+      }
+      else{
+        var html = buildSendMessageHTML(message);
+        $('.messages').append(html)
+        $("#new_message")[0].reset();
+        $('.messages').animate({scrollTop: $('.messages')[0].scrollHeight}, 'fast');
+      }
     })
     .fail(function(){
       alert('error');
     })
+
     .always(function(){
       $("#new_message_btn").prop('disabled', false);
-      var input = $("#new_message_btn").prop('disabled')
-      if (input) {
-        alert('error');
-      }
-
     })
   })
 })
